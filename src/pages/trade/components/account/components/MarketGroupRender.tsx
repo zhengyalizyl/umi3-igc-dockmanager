@@ -13,7 +13,7 @@ const ProductGroupCellRender = (props: ICellRendererParams) => {
   if (props.node.group) {
     return (
       <div className={styles.accountCellClass}>
-        <span>{countMore1 ? '产品' : props.value}</span>
+        <span>{countMore1 ? '市场' : props.value}</span>
         {countMore1 && <span className={styles.countClass}>{count}</span>}
         <span className={styles.expandClass}>
           {countMore1 && props.node.expanded && (

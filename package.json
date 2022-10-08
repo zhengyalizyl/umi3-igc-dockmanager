@@ -22,9 +22,9 @@
         ]
     },
     "dependencies": {
-        "ag-grid-community": "^28.1.1",
-        "ag-grid-enterprise": "^28.1.1",
-        "ag-grid-react": "^28.1.1",
+        "ag-grid-community": "^28.2.0",
+        "ag-grid-enterprise": "^28.2.0",
+        "ag-grid-react": "^28.2.0",
         "antd": "^4.23.0",
         "classname": "0.0.0",
         "igniteui-dockmanager": "1.9.0",

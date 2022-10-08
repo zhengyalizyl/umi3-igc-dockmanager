@@ -1,6 +1,12 @@
 import { Effect, Reducer, Subscription } from 'umi';
 export interface TradeModelState {
-  accountSelectData:number
+  accountSelectData: number;
+  accountSelectRowData: any[];
+  dialySelectProductData: string;
+  dialySelectAccountData: string;
+  dialySelectMarketData: string;
+  dialySelectClassifyData: string;
+  dialySelectStatusData: string;
 }
 
 export interface TradeModelType {
@@ -9,9 +15,10 @@ export interface TradeModelType {
   subscriptions: {
     setup: Subscription;
   };
-  effects: {
-  };
+  effects: {};
   reducers: {
-    handleSelectAccount:Reducer<TradeModelType>
+    handleSelectAccount: Reducer<TradeModelType>;
+    handleSelectDaily: Reducer<TradeModelType>;
+    handleSelectRowAccount: Reducer<TradeModelType>;
   };
 }

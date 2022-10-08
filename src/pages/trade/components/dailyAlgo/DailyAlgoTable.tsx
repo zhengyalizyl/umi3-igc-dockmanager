@@ -9,7 +9,16 @@ import { ColDef } from 'ag-grid-community';
 
 import { connect, Dispatch } from 'umi';
 import { TradeModelState } from '../../tradeModelType';
-import { columMap, columnFullData } from './accountColumnData';
+import { columnFullData } from './accountColumnData';
+import AccountGroupCellRenderer from './components/AccountGroupCellRenderer';
+import ProductCellRenderer from './components/ProductCellRenderer';
+import { getAggSumFunc, getCellRenderValue } from '../account/utils';
+import StopCellRenderer from './components/StopCellRenderer';
+import RedOrGreenRennderer from './components/RedOrGreenRennderer';
+import CustomTradeHeaderGroup from './components/CustomTradeHeaderGroup';
+import ProcessCellRenderer from './components/ProcessCellRenderer';
+import TipCellRenderer from './components/TipCellRenderer';
+import OpertationTable from './components/OpertationTable';
 
 interface AccountTabsProps {
   accountSelectData: number;
@@ -17,13 +26,11 @@ interface AccountTabsProps {
 }
 
 const AccountTable = (props: AccountTabsProps) => {
-  const { accountSelectData, dispatch } = props;
+  const { accountSelectData } = props;
   const gridRef = useRef<AgGridReact<any>>(null);
-
-  const filterCoum =
-    columMap[(accountSelectData + '') as keyof typeof columMap];
   const [rowData, setRowData] = useState<any[]>(accountData);
-  const [columnDefs, setColumnDefs] = useState<any[]>(filterCoum);
+
+  const [columnDefs, setColumnDefs] = useState<any[]>(columnFullData);
   const defaultColDef = useMemo<ColDef>(() => {
     return {
       sortable: true,
@@ -31,24 +38,7 @@ const AccountTable = (props: AccountTabsProps) => {
     };
   }, []);
 
-  useEffect(() => {
-    const filterCoum =
-      columMap[(accountSelectData + '') as keyof typeof columMap];
-    setColumnDefs(filterCoum);
-    setRowData(accountData);
-  }, [accountSelectData]);
-
-  const onSelectionChanged = () => {
-    console.log(gridRef.current!.api);
-    const selectedRows = gridRef.current!.api.getSelectedRows();
-    console.log(selectedRows, 'xuanze===');
-    dispatch({
-      type: 'trade/handleSelectRowAccount',
-      payload: selectedRows,
-    });
-  };
-
-  console.log(columnDefs);
+  useEffect(() => {}, []);
   return (
     <div className={styles.agTableClass}>
       <div
@@ -67,7 +57,6 @@ const AccountTable = (props: AccountTabsProps) => {
           animateRows={true}
           rowSelection={'multiple'}
           suppressRowClickSelection={true}
-          onSelectionChanged={onSelectionChanged}
           suppressAggFuncInHeader={true}
           groupSelectsChildren={true}
           rowHeight={28}
