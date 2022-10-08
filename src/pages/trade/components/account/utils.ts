@@ -1,3 +1,4 @@
+
 export const getTheValue = (params: any, colName: string, emptyDispalyName: string) => {
     if (!(params.node && params.node.group)) {
         return params.data[colName] ? params.data[colName] : emptyDispalyName;
@@ -25,3 +26,15 @@ export const getCellRenderValue=(parmas:any,displayName:string)=>{
 
    return parmas.value?parmas.value:displayName
 }
+
+
+
+
+
+export const selectProductMap={
+    'account':1,
+    "product":2,
+    "market":3
+}
+
+
