@@ -7,9 +7,6 @@ export default (props: ICellRendererParams) => {
     console.log(props)
 
     // 还要看子节点有没有暂停为true
-
-
-
     if (props.node.group) {
         const allLeafChildren = props.node.allLeafChildren;
         let stopArr: any[] = [];

@@ -24,7 +24,7 @@ const AccountTable = (props:AccountTabsProps) => {
     const {accountSelectData} =props;
 
     const gridRef = useRef<AgGridReact<any>>(null);
-    const filterCoum = columMap[ accountSelectData+ '' as keyof typeof columMap];
+    const filterCoum = columMap['2'];
     const [rowData, setRowData] = useState<any[]>(accountData);
     const [columnDefs, setColumnDefs] = useState<any[]>(filterCoum);
     const defaultColDef = useMemo<ColDef>(() => {
@@ -36,8 +36,11 @@ const AccountTable = (props:AccountTabsProps) => {
     }, []);
 
     useEffect(() => {
-
-    }, [])
+        const filterCoum = columMap[ accountSelectData+ '' as keyof typeof columMap];
+        console.log(filterCoum,'=======',accountData)
+        setColumnDefs(filterCoum);
+        setRowData(accountData)
+    }, [accountSelectData])
 
 
     const onSelectionChanged = () => {
@@ -59,7 +62,6 @@ const AccountTable = (props:AccountTabsProps) => {
     return (
 
         <div className={styles.agTableClass}>
-            {JSON.stringify(columnDefs)}
             <div
                 style={{
                     height: "300px",

@@ -118,7 +118,6 @@ export const columnFullData = [
 
 
 export const getDispalyProduct = (arrColum: any) => {
-    console.log(arrColum)
     const product = [{
         field: 'productName',
         colId: 'productName',
@@ -149,10 +148,13 @@ export const getDispalyProduct = (arrColum: any) => {
         colId: 'account',
         headerName: '资金账号',
         suppressMenu: true,
+        hide:false,
+        rowGroup: false,
         aggFunc: 'first',
+
     }]
 
-    const productCloum = product.concat(arrColum);
+    const productCloum = product.concat(JSON.parse(arrColum));
     return productCloum
 }
 
@@ -188,11 +190,14 @@ export const getDispalyAccount = (arrColum: any) => {
         headerName: '产品名称',
         sortable: true,
         suppressMenu: true,
+        rowGroup: false,
+        hide:false,
         aggFunc: 'first',
+
         cellRenderer: ProductCellRenderer
     }]
 
-    const productCloum = product.concat(arrColum);
+    const productCloum = product.concat(JSON.parse(arrColum));
     return productCloum
 }
 
@@ -207,7 +212,6 @@ export const getDispalyMarket = (arrColum: any) => {
             hide: true,
             aggFunc: 'first',
             sortable: true
-
         },
         {
             field: 'market',
@@ -231,7 +235,8 @@ export const getDispalyMarket = (arrColum: any) => {
             headerName: '资金账号',
             suppressMenu: true,
             aggFunc: 'first',
-            hide: true,
+            hide: false,
+            rowGroup: false,
         },
         {
             field: 'productName',
@@ -240,19 +245,21 @@ export const getDispalyMarket = (arrColum: any) => {
             sortable: true,
             suppressMenu: true,
             aggFunc: 'first',
+            rowGroup: false,
+            hide:false,
             cellRenderer: ProductCellRenderer
         },
 
     ]
 
-    const productCloum = product.concat(arrColum);
+    const productCloum = product.concat(JSON.parse(arrColum));
     return productCloum
 }
 
 
 
 export const columMap = {
-    '1': getDispalyAccount(columnFullData),
-    '2': getDispalyProduct(columnFullData),
-    '3': getDispalyMarket(columnFullData),
+    '1': getDispalyAccount(JSON.stringify(columnFullData)),
+    '2': getDispalyProduct(JSON.stringify(columnFullData)),
+    '3': getDispalyMarket(JSON.stringify(columnFullData)),
 }

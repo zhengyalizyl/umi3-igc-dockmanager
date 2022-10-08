@@ -30,17 +30,17 @@ const HeaderLeft = (props: AccountHeaderLeftProps) => {
 
     return (
         <div className={styles.headerLeftBox}>
-            <Select dropdownClassName={styles.dropdownStyle} defaultValue="account" className={styles.selectBox} onChange={handleChange}>
+            <Select dropdownClassName={styles.dropdownStyle} defaultValue={"product"} className={styles.selectBox} onChange={handleChange}>
                 <Option value="account">按账户显示</Option>
                 <Option value="product">按产品显示</Option>
                 <Option value="market">分市场显示</Option>
             </Select>
             <div className={styles.inputBox}>
                 <Input
-
                     className={styles.inputClass}
                     placeholder="请输入账户/产品名称查询"
                     maxLength={8}
+                    width={300}
                     prefix={<SearchOutlined />}
                 />
             </div>

@@ -10,7 +10,7 @@ const ProductGroupCellRender= (props: ICellRendererParams) => {
     }
     const count = props.node.allChildrenCount;
     const countMore1 = count && count > 1;
-
+  console.log(props,'fenzu')
     if (props.node.group) {
         return (
             <div className={styles.accountCellClass}>

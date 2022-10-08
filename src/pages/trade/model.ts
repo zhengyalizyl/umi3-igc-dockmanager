@@ -4,7 +4,7 @@
   const Trade: TradeModelType = {
     namespace: 'trade',
     state: {
-      accountSelectData:1
+      accountSelectData:2
     },
     subscriptions: {
       setup({ history, dispatch }) {},
