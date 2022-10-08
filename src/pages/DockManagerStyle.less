@@ -1,0 +1,102 @@
+
+.dockManagerContent {
+    padding: 0.5rem;
+    height: calc(100% - 1rem);
+    width: calc(100% - 1rem);
+    display: flex;
+    flex-direction: column;
+    /* background: orange; */
+}
+
+igc-dockmanager::part(unpinned-tab-area) {
+    background: #bee9ec;
+}
+  
+igc-dockmanager::part(unpinned-tab-area--left) {
+    border-right: 1px dashed #004d7a;
+}
+  
+igc-dockmanager::part(unpinned-tab-area--bottom) {
+    border-top: 1px dashed #004d7a;
+}
+
+igc-dockmanager::part(tab-header-close-button), 
+igc-dockmanager::part(pane-header-close-button) {
+    background-color: #e73c7e;
+}
+
+igc-dockmanager::part(context-menu-unpin-button),
+igc-dockmanager::part(pane-header-pin-button),
+igc-dockmanager::part(pane-header-unpin-button) {
+  background: rgb(218, 218, 218);
+  border: none;
+  width: 24px;
+  height: 24px;
+  color: #fff;
+  display: none;
+}
+
+igc-dockmanager::part(tabs-maximize-button),
+igc-dockmanager::part(tabs-minimize-button),
+igc-dockmanager::part(pane-header-minimize-button),
+igc-dockmanager::part(pane-header-maximize-button) {
+  width: 24px;
+  height: 24px;
+  border: none;
+  transition: opacity 250ms ease-in-out;
+  opacity: 0.3;
+  margin-right: 15px;
+  margin-top: -5px;
+  margin-left: 0px;
+}
+
+igc-dockmanager::part(content-pane) {
+    border-radius: 10px;
+  }
+  igc-dockmanager::part(root-docking-indicator),
+  igc-dockmanager::part(docking-indicator) {
+    background-color: rgba(49, 45, 49, 0.733);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 2px
+  }
+
+  igc-dockmanager::part(docking-indicator) {
+    // background-color: rgba(49, 45, 49, 0.733);
+     background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin: 2px
+  }
+
+  igc-dockmanager::part(docking-indicator) {
+    background-color: red;
+     
+    color: red;
+    border: none;
+    border-radius: 5px;
+    margin: 2px
+  }
+
+.docking-indicators-container{
+    display: block;
+   }
+  igc-dockmanager .docking-indicators-container::part(root-docking-indicator){
+    background-color: green;
+  }
+
+  
+  igc-dockmanager::part(docking-preview) {
+    background-color: rgb(227,230,233);
+    opacity: 0.7;
+  }
+
+
+
+
+
+
+
+

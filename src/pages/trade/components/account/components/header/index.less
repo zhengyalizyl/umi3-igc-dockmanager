@@ -1,0 +1,175 @@
+@import '../../../../index.less';
+
+.headerBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 8px 8px 12px;
+    height: 40px;
+    box-sizing: border-box;
+    width: 100%;
+    .headerLeftBox {
+        display: flex;
+        align-items: center;
+
+        :global {
+            .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+                height: 24px;
+                box-sizing: border-box;
+            }
+        }
+
+        .selectBox {
+            height: 24px;
+
+        }
+
+        .inputBox {
+            margin-left: 8px;
+        }
+
+        .inputClass {
+            width: 180px;
+            font-size: 12px;
+        }
+
+        .expandClass {
+            margin-left: 12px;
+        }
+
+
+
+    }
+
+    .headerRightBox {
+        :global {
+            .ant-btn-text {
+                color: #C8C9CC !important;
+            }
+        }
+
+
+        ul{
+            display: flex;
+            align-items: center;
+            li{
+                border-right:1px solid #4A5266;
+                height: 16px;
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                margin-left:8px;
+        
+            }
+            li:nth-last-child(1){
+                border:none;
+            }
+            
+        }
+        .buttonClass {
+            display: flex;
+            align-items: center;
+            padding:0;
+            font-size: 12px;
+            line-height: 14px;
+            margin-right:8px;
+
+        }
+
+        .framIconStyle {
+            margin-right: 4px;
+        }
+
+        .batchBox{
+            display: flex;
+            align-items: center;
+            .selectBox{
+                margin-right:8px;
+            }
+             :global{
+                .ant-btn{
+                    background:  #272B36;
+                    padding:6px 8px;
+                    height: 24px;
+                    box-sizing: border-box;
+                    line-height: 1;
+                    margin-right:4px;
+                    border: none;
+                }
+                .ant-btn:hover, .ant-btn:focus{
+                    // color:transparent;
+                    border:none;
+                }
+             }
+        }
+
+
+
+    }
+
+
+}
+
+
+.dropdownStyle {
+    :global {
+        .ant-select-dropdown {
+            padding: 10px 0px;
+            color: #323233 !important;
+            font-size: 12px;
+            line-height: 1;
+            background-color: @background6  !important;
+            border-radius: 4px;
+        }
+
+        .ant-select-item-option {
+            color: @color;
+            font-size: 12px;
+        }
+
+        .ant-select-item-option:hover:not(.ant-select-item-option-disabled) {
+            color: @color;
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .ant-select-item-option:hover:not(.ant-select-item-option-disabled):not(.ant-select-item-option-active):not(.ant-select-item-option-selected) {
+            color: @color;
+            background-color: rgba(45, 113, 246, 0.1) !important;
+        }
+
+        .ant-select-item-option-selected,
+        .ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+            color: white !important;
+            background-color: #0d6efd !important;
+        }
+    }
+}
+
+.color00B69B{
+    color:#00B69B;
+}
+.color42B1FF{
+    color:#42B1FF;
+}
+.colorFF8743 {
+    color:#FF8743;
+}
+.colorC8C9CC{
+    color:#C8C9CC;
+}
+
+
+.color00B69B:hover,color00B69B:focus{
+    color:#00B69B;
+}
+.color42B1FF:hover,color42B1FF:focus{
+    color:#42B1FF;
+}
+.colorFF8743:hover,colorFF8743:focus{
+    color:#FF8743;
+}
+.colorC8C9CC:hover,colorC8C9CC:focus{
+    color:#C8C9CC;
+}
+
+

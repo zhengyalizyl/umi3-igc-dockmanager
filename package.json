@@ -1,0 +1,52 @@
+{
+    "private": true,
+    "scripts": {
+        "start": "cross-env  UMI_ENV=dev umi dev",
+        "start-es": "cross-env  UMI_ENV=es umi dev",
+        "build": "cross-env UMI_ENV=pro umi build&& tar -zcvf dist.tar dist",
+        "build-es": "cross-env UMI_ENV=es umi build&& tar -zcvf dist.tar dist",
+        "postinstall": "umi generate tmp",
+        "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+        "test": "umi-test",
+        "test:coverage": "umi-test --coverage"
+    },
+    "gitHooks": {
+        "pre-commit": "lint-staged"
+    },
+    "lint-staged": {
+        "*.{js,jsx,less,md,json}": [
+            "prettier --write"
+        ],
+        "*.ts?(x)": [
+            "prettier --parser=typescript --write"
+        ]
+    },
+    "dependencies": {
+        "ag-grid-community": "^28.1.1",
+        "ag-grid-enterprise": "^28.1.1",
+        "ag-grid-react": "^28.1.1",
+        "antd": "^4.23.0",
+        "classname": "0.0.0",
+        "igniteui-dockmanager": "1.9.0",
+        "igniteui-react-core": "16.16.2",
+        "igniteui-react-grids": "^16.16.3",
+        "igniteui-react-inputs": "^16.16.3",
+        "igniteui-react-layouts": "^16.16.3",
+        "igniteui-webcomponents": "^3.4.0",
+        "react": "17.x",
+        "react-dom": "17.x",
+        "socket.io-client": "^4.5.2",
+        "umi": "^3.5.30"
+    },
+    "devDependencies": {
+        "@types/react": "^17.0.0",
+        "@types/react-dom": "^17.0.0",
+        "@umijs/preset-react": "1.x",
+        "@umijs/test": "^3.5.30",
+        "cross-env": "^7.0.3",
+        "lint-staged": "^10.0.7",
+        "prettier": "^2.2.0",
+        "typescript": "^4.1.2",
+        "yorkie": "^2.0.0"
+    }
+}

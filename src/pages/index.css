@@ -1,0 +1,178 @@
+.alarmOrAbandonedBox {
+  height: 320px;
+  width: 549px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid #373D4D;
+}
+.alarmOrAbandonedBox :global .ant-tabs {
+  background-color: #15161B;
+  color: #e8e9e9;
+}
+.alarmOrAbandonedBox :global .ant-tabs-tab {
+  border: none !important;
+  padding: 4px 0;
+  margin-left: 12px;
+  margin-right: 24px;
+}
+.alarmOrAbandonedBox :global .ant-tabs-tab + .ant-tabs-tab {
+  margin-left: 12px;
+  margin-right: 24px;
+}
+.alarmOrAbandonedBox :global .ant-tabs-top > .ant-tabs-nav,
+.alarmOrAbandonedBox :global .ant-tabs-bottom > .ant-tabs-nav,
+.alarmOrAbandonedBox :global .ant-tabs-top > div > .ant-tabs-nav,
+.alarmOrAbandonedBox :global .ant-tabs-bottom > div > .ant-tabs-nav {
+  margin: 0 0 0 0;
+}
+.alarmOrAbandonedBox :global .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #fff;
+  text-shadow: 0 0 0.25px currentcolor;
+}
+.alarmOrAbandonedBox :global .ant-tabs-top > .ant-tabs-nav::before {
+  border: none !important;
+}
+.alarmOrAbandonedBox :global .ant-input-show-count-suffix {
+  color: #8d8f93 !important;
+}
+.alarmOrAbandonedBox :global input::-webkit-input-placeholder {
+  color: #7D8086;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+}
+.alarmOrAbandonedBox :global .ant-input-affix-wrapper > input.ant-input:focus {
+  box-shadow: 0 0px 0px 1000px #272b36 inset !important;
+}
+.alarmOrAbandonedBox :global .ant-input-affix-wrapper {
+  height: 24px !important;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: #e8e9e9 !important;
+  background-color: #282d38 !important;
+  border: 1px solid #4a5266 !important;
+  border-radius: 4px;
+}
+.alarmOrAbandonedBox :global .ant-input-affix-wrapper .ant-input {
+  height: 22px !important;
+  border: none !important;
+}
+.alarmOrAbandonedBox :global .ant-input-affix-wrapper .ant-input:focus {
+  height: 22px !important;
+  border: none !important;
+}
+.alarmOrAbandonedBox :global .ant-input-affix-wrapper:focus,
+.alarmOrAbandonedBox :global .ant-input-affix-wrapper-focused,
+.alarmOrAbandonedBox :global .ant-input,
+.alarmOrAbandonedBox :global .ant-input:focus,
+.alarmOrAbandonedBox :global .ant-input[disabled] {
+  height: 24px !important;
+  color: #e8e9e9 !important;
+  background-color: #282d38 !important;
+  border: 1px solid #4a5266 !important;
+  transition: none;
+}
+.alarmOrAbandonedBox :global .ant-input-group-addon {
+  color: #e8e9e9 !important;
+  background-color: #282d38 !important;
+  border: 1px solid #4a5266 !important;
+}
+.alarmOrAbandonedBox :global .ant-table {
+  font-size: 14px;
+  line-height: 1;
+}
+.alarmOrAbandonedBox :global .ant-table-filter-dropdown {
+  background-color: #2f3542 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-filter-column {
+  justify-content: flex-start;
+}
+.alarmOrAbandonedBox :global .ant-dropdown-menu-item-selected {
+  background-color: #2f3542 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-filter-dropdown-btns {
+  border-top: 1px solid #4a5266 !important;
+}
+.alarmOrAbandonedBox :global .ant-dropdown .ant-dropdown-menu {
+  background-color: #2f3542 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-tbody > tr.ant-table-placeholder:hover > td {
+  background: #1c1f27 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-column-sorters {
+  justify-content: flex-start;
+}
+.alarmOrAbandonedBox :global .ant-table-column-title {
+  flex: none;
+}
+.alarmOrAbandonedBox :global .ant-table-column-sorter {
+  margin-left: 2px;
+}
+.alarmOrAbandonedBox :global .ant-table-thead > tr > th {
+  color: #fff;
+  font-weight: 600;
+  background: #282d38 !important;
+  border-bottom: 1px solid #4a5266 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-thead > tr > th {
+  position: relative;
+  overflow-wrap: break-word;
+  padding: 7px 6px !important;
+  box-sizing: border-box;
+}
+.alarmOrAbandonedBox :global .ant-table-tbody > tr > td,
+.alarmOrAbandonedBox :global .ant-table tfoot > tr > th,
+.alarmOrAbandonedBox :global .ant-table tfoot > tr > td {
+  position: relative;
+  overflow-wrap: break-word;
+  padding: 8px 6px !important;
+  box-sizing: border-box;
+}
+.alarmOrAbandonedBox :global tr.ant-table-measure-row {
+  visibility: collapse;
+}
+.alarmOrAbandonedBox :global .ant-tabs-content-holder {
+  overflow-y: auto;
+}
+.alarmOrAbandonedBox :global td.ant-table-column-sort {
+  background: #1c1f27 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-cell-scrollbar {
+  box-shadow: none;
+}
+.alarmOrAbandonedBox :global .ant-table {
+  color: #e8e9e9 !important;
+  background: #1c1f27 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-tbody > tr.ant-table-row-selected > td {
+  color: #e8e9e9 !important;
+  background: #1c1f27 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-tbody > tr.ant-table-row > td {
+  background: #1c1f27 !important;
+  font-size: 12px;
+}
+.alarmOrAbandonedBox :global .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #4a5266 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-row:hover {
+  background: #282d38 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-tbody > tr.ant-table-row:hover > td {
+  background: #282d38 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-cell {
+  background: #1c1f27 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-row-expand-icon {
+  background: #1c1f27 !important;
+  border: 1px solid #4a5266 !important;
+}
+.alarmOrAbandonedBox :global .ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: #4A5266;
+  height: 1em;
+}
+.alarmOrAbandonedBox .searchInputBox {
+  margin: 5px 8px 4px 0px;
+}
