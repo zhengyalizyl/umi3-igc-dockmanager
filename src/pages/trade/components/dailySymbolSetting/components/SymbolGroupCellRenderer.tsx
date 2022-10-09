@@ -12,8 +12,11 @@ export default (props: ICellRendererParams) => {
   if (props.node.group) {
     return (
       <div className={styles.accountCellClass}>
-        {/* <span>{countMore1 ? '账号' : props.value}</span> */}
-        {countMore1 && <span className={styles.countClass}>{count}</span>}
+        {countMore1 ? (
+          <span className={styles.countClass}>{count}</span>
+        ) : (
+          <span>{props.node.aggData.symbol}</span>
+        )}
         <span className={styles.expandClass}>
           {countMore1 && props.node.expanded && (
             <DownOutlined style={{ fontSize: 12 }} onClick={onClick} />

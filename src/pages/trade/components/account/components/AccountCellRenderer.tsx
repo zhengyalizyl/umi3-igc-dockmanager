@@ -15,7 +15,7 @@ const AccountCellRenderer = (props: ICellRendererParams) => {
         unloginArr.push(leaf);
       }
     });
-    const isUnLoginArr = unloginArr.length == 1;
+    const isUnLoginArr = unloginArr.length > 0;
     return (
       <div className={styles.accountCellClass}>
         <span> {props.value}</span>

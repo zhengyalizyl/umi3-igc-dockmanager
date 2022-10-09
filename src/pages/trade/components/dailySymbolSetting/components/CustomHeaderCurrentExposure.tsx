@@ -9,10 +9,10 @@ const CustomHeaderCurrentExposure = (props: any) => {
     <div>
       <div className="ag-header-group-cell-label">
         <div className={styles.customTradelabel}>
-          <span>{props.displayName}</span>
           <Tooltip title="1223">
             <QuestionCircleOutlined />
           </Tooltip>
+          <span>{props.displayName}</span>
         </div>
       </div>
     </div>

@@ -54,6 +54,7 @@ const DailySymbolSettingTable = (props: AccountTabsProps) => {
           suppressAggFuncInHeader={true}
           groupSelectsChildren={true}
           onSelectionChanged={onSelectionChanged}
+          showOpenedGroup={false}
           rowHeight={28}
           headerHeight={28}
           getRowStyle={(params) => {
