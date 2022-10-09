@@ -3,6 +3,7 @@ export interface TradeModelState {
   accountSelectData: string;
   accountSelectRowData: any[];
   accountexpandOrContactAllData: boolean;
+  dailyAlgoSelectRowData: any[];
   dialySelectProductData: string;
   dialySelectAccountData: string;
   dialySelectMarketData: string;
@@ -22,5 +23,6 @@ export interface TradeModelType {
     handleSelectDaily: Reducer<TradeModelType>;
     handleSelectRowAccount: Reducer<TradeModelType>;
     expandOrContactAllAccount: Reducer<TradeModelType>;
+    handleSelectRowDailyAlog: Reducer<TradeModelType>;
   };
 }

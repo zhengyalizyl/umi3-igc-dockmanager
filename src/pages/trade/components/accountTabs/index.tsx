@@ -3,6 +3,7 @@ import React from 'react';
 import AbandonedOrderReminder from '../abandonedOrderReminder';
 import Account from '../account';
 import DailyAlgo from '../dailyAlgo';
+import DailySymbolSetting from '../dailySymbolSetting';
 import styles from './index.less';
 
 const AccountTabs = () => {
@@ -45,7 +46,7 @@ const AccountTabs = () => {
           {
             label: `日内标的设置`,
             key: '6',
-            children: <AbandonedOrderReminder />,
+            children: <DailySymbolSetting />,
           },
         ]}
       />

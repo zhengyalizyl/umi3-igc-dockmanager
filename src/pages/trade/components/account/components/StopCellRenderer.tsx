@@ -20,7 +20,10 @@ export default (props: ICellRendererParams) => {
         {props.value}
         {isHasStopArr && (
           <Tooltip title={`${stopArr.length}个标的自动暂停`}>
-            <span className={`${styles.dot} ${styles.redDot}`}></span>
+            <span
+              className={`
+          ${styles.mr2} ${styles.dot} ${styles.redDot}`}
+            ></span>
           </Tooltip>
         )}
       </div>
@@ -32,7 +35,10 @@ export default (props: ICellRendererParams) => {
       <span>{props.value}</span>
       {props.data.isStop && (
         <Tooltip title="一个标的自动暂停">
-          <span className={`${styles.dot} ${styles.redDot}`}></span>
+          <span
+            className={`
+          ${styles.mr2} ${styles.dot} ${styles.redDot}`}
+          ></span>
         </Tooltip>
       )}
     </div>

@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function ProductCellRenderer(val:any) {
-  
-  return (
-       <span>{val.value}</span>
-  )
+function ProductCellRenderer(props: any) {
+  if (props.node.group) {
+    return <span> {props.value}</span>;
+  }
+
+  return null;
 }
 
-export default ProductCellRenderer
+export default ProductCellRenderer;

@@ -19,9 +19,7 @@ interface AccountTabsProps {
 
 const AccountTable = (props: AccountTabsProps) => {
   const { accountSelectData, dispatch, accountexpandOrContactAllData } = props;
-  console.log(accountexpandOrContactAllData);
   const gridRef = useRef<AgGridReact<any>>(null);
-
   const filterCoum = columMap[accountSelectData as keyof typeof columMap];
   const [rowData, setRowData] = useState<any[]>(accountData);
   const [columnDefs, setColumnDefs] = useState<any[]>(filterCoum);
@@ -80,6 +78,7 @@ const AccountTable = (props: AccountTabsProps) => {
           suppressContextMenu={true}
           rowHeight={28}
           headerHeight={28}
+          showOpenedGroup={false}
           getRowStyle={(params) => {
             if (!(params as any)?.node.groupData) {
               return { background: '#1A1B21', borderBottom: 'none' };

@@ -3,21 +3,21 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-enterprise';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
-import { avaliableData } from '../../data';
+import { dailySymbolSettingData } from '../../data';
 import styles from './index.less';
 import { ColDef } from 'ag-grid-community';
 import { connect, Dispatch } from 'umi';
 import { TradeModelState } from '../../tradeModelType';
-import { columnFullData } from './dailyAlgoColumnData';
+import { columnFullData } from './dailySymbolSettingColumnData';
 
 interface AccountTabsProps {
   dispatch: Dispatch;
 }
 
-const DailyAlgoTable = (props: AccountTabsProps) => {
+const DailySymbolSettingTable = (props: AccountTabsProps) => {
   const { dispatch } = props;
   const gridRef = useRef<AgGridReact<any>>(null);
-  const [rowData, setRowData] = useState<any[]>(avaliableData);
+  const [rowData, setRowData] = useState<any[]>(dailySymbolSettingData);
   const [columnDefs, setColumnDefs] = useState<any[]>(columnFullData);
   const defaultColDef = useMemo<ColDef>(() => {
     return {
@@ -56,6 +56,11 @@ const DailyAlgoTable = (props: AccountTabsProps) => {
           onSelectionChanged={onSelectionChanged}
           rowHeight={28}
           headerHeight={28}
+          getRowStyle={(params) => {
+            if (!(params as any)?.node.groupData) {
+              return { background: '#1A1B21', borderBottom: 'none' };
+            }
+          }}
         ></AgGridReact>
       </div>
     </div>
@@ -63,5 +68,5 @@ const DailyAlgoTable = (props: AccountTabsProps) => {
 };
 
 export default connect(({ trade }: { trade: TradeModelState }) => ({}))(
-  DailyAlgoTable,
+  DailySymbolSettingTable,
 );

@@ -22,7 +22,9 @@ const AvaliableCaptialCellerRender = (props: ICellRendererParams) => {
       <div>
         {isHasAvaliableArr && (
           <Tooltip title={avaliableTips}>
-            <span className={`${styles.dot} ${styles.redDot}`}></span>
+            <span
+              className={`${styles.mr2} ${styles.dot} ${styles.redDot}`}
+            ></span>
           </Tooltip>
         )}
         <span>{props.value}</span>
@@ -39,7 +41,9 @@ const AvaliableCaptialCellerRender = (props: ICellRendererParams) => {
     <div>
       {isShowTip && (
         <Tooltip title={avaliableTips}>
-          <span className={`${styles.dot} ${styles.redDot}`}></span>
+          <span
+            className={`${styles.mr2} ${styles.dot} ${styles.redDot}`}
+          ></span>
         </Tooltip>
       )}
       <span>{props.value}</span>

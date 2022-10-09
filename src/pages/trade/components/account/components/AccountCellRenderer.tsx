@@ -45,33 +45,7 @@ const AccountCellRenderer = (props: ICellRendererParams) => {
     );
   }
 
-  return (
-    <div className={styles.accountCellClass}>
-      <span>{props.value}</span>
-      {!props.data.accountIsLogin && (
-        <Tooltip
-          title={
-            <ul className={styles.accountLoginTip}>
-              <li>
-                <span>12222</span>
-                <span>未</span>
-                <span>登录,</span>
-                <span>点击</span>
-                <Button type="link">登录</Button>
-              </li>
-              <li>
-                <span>1233334444344</span>
-                <span>已</span>
-                <span>登录</span>
-              </li>
-            </ul>
-          }
-        >
-          登录
-        </Tooltip>
-      )}
-    </div>
-  );
+  return null;
 };
 
 export default AccountCellRenderer;

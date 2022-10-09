@@ -28,20 +28,11 @@ const HeaderRight = (props: HeaderRightProps) => {
           <span className={styles.selectBox}>
             已选{dailyAlgoSelectRowData.length}
           </span>
-          <Button icon={<PlayCircleOutlined />} className={styles.color00B69B}>
-            开启
-          </Button>
 
-          <Button icon={<PauseCircleOutlined />} className={styles.color42B1FF}>
-            暂停
-          </Button>
-          <ConfigProvider autoInsertSpaceInButton={false}>
-            <Button className={styles.colorFF8743}>平仓</Button>
-          </ConfigProvider>
-          <ConfigProvider autoInsertSpaceInButton={false}>
-            <Button className={styles.color1C1F27}>取消</Button>
-          </ConfigProvider>
-          <Button className={styles.colorC8C9CC}>导出数据</Button>
+          <Button className={styles.color42B1FF}>批量自动上传券单</Button>
+          <Button className={styles.colorFF8743}>批量取消日内标的设置</Button>
+          <Button type="primary">批量设置日内标的</Button>
+          <Button className={styles.colorC8C9CC}>同步所有资券</Button>
         </li>
       </ul>
     </div>

@@ -10,8 +10,10 @@ export const ProcessCellRenderer = (props: ICellRendererParams) => {
       color = '#322D28';
     } else if (percent > 0 && percent < 0.5) {
       color = '#FFCF4F';
-    } else if (percent >= 0.5) {
+    } else if (percent >= 0.5 && percent < 1) {
       color = '#2D71F6';
+    } else if (percent === 1) {
+      color = '#144C4A';
     }
     return color;
   };
@@ -21,8 +23,8 @@ export const ProcessCellRenderer = (props: ICellRendererParams) => {
   };
 
   const getPercent = useMemo(() => {
-    let percent;
-    if (props.value !== null) {
+    let percent = 0;
+    if (props.value !== null && props.value !== undefined) {
       if (props.value > 0 && props.value < 0.01) {
         percent = 0.01;
       } else if (props.value > 0.99 && props.value < 1) {
@@ -33,6 +35,7 @@ export const ProcessCellRenderer = (props: ICellRendererParams) => {
     }
     return percent;
   }, [props.value]);
+  console.log(getPercent, 'baifenbvi');
 
   return (
     <div className={styles.processClass}>

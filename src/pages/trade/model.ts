@@ -6,6 +6,7 @@ const Trade: TradeModelType = {
     accountSelectData: 'account',
     accountexpandOrContactAllData: false,
     accountSelectRowData: [],
+    dailyAlgoSelectRowData: [],
     dialySelectProductData: 'all',
     dialySelectAccountData: 'all',
     dialySelectMarketData: 'all',
@@ -29,6 +30,7 @@ const Trade: TradeModelType = {
       return {
         ...state,
         ...action.payload,
+        accountexpandOrContactAllData: false,
       };
     },
     //@ts-ignore
@@ -43,6 +45,13 @@ const Trade: TradeModelType = {
       return {
         ...state,
         accountexpandOrContactAllData: action.payload,
+      };
+    },
+    //@ts-ignore
+    handleSelectRowDailyAlog(state, action) {
+      return {
+        ...state,
+        dailyAlgoSelectRowData: action.payload,
       };
     },
   },

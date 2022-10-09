@@ -31,43 +31,14 @@ const HeaderLeft = (props: AccountHeaderLeftProps) => {
       <Select
         dropdownClassName={styles.dropdownStyle}
         defaultValue={'all'}
-        className={`${styles.selectBox}`}
-        onChange={(val) => handleChange(val, 'dialySelectProductData')}
-      >
-        <Option value="all">全部产品</Option>
-        <Option value="prod1">量化私募基金101号</Option>
-        <Option value="prod2">量化私募基金102号</Option>
-      </Select>
-      <Select
-        dropdownClassName={styles.dropdownStyle}
-        defaultValue={'all'}
         className={styles.selectBox}
-        onChange={(val) => handleChange(val, 'dialySelectAccountData')}
+        onChange={(val) => handleChange(val, 'dialySelectStatusData')}
       >
-        <Option value="all">全部账户</Option>
-        <Option value="12333">12333</Option>
-        <Option value="4545545">455555</Option>
-      </Select>
-      <Select
-        dropdownClassName={styles.dropdownStyle}
-        defaultValue={'all'}
-        className={styles.selectBox}
-        onChange={(val) => handleChange(val, 'dialySelectMarketData')}
-      >
-        <Option value="all">全部市场</Option>
-        <Option value="product">深圳</Option>
-        <Option value="market">上海</Option>
-      </Select>
-      <Select
-        dropdownClassName={styles.dropdownStyle}
-        defaultValue={'all'}
-        className={styles.selectBox}
-        onChange={(val) => handleChange(val, 'dialySelectClassifyData')}
-      >
-        <Option value="all">全部品种</Option>
-        <Option value="stock">股票</Option>
-        <Option value="etf">ETF</Option>
-        <Option value="convertibleBond">可转债</Option>
+        <Option value="all">全部状态</Option>
+        <Option value="opened">已开启</Option>
+        <Option value="unopened">未开启</Option>
+        <Option value="closingPosition">平仓中</Option>
+        <Option value="closed">已关闭</Option>
       </Select>
       <Select
         dropdownClassName={styles.dropdownStyle}
@@ -75,7 +46,7 @@ const HeaderLeft = (props: AccountHeaderLeftProps) => {
         className={styles.selectBox}
         onChange={(val) => handleChange(val, 'dialySelectStatusData')}
       >
-        <Option value="all">全部状态</Option>
+        <Option value="all">自动券单上传</Option>
         <Option value="opened">已开启</Option>
         <Option value="unopened">未开启</Option>
         <Option value="closingPosition">平仓中</Option>
@@ -89,14 +60,6 @@ const HeaderLeft = (props: AccountHeaderLeftProps) => {
           width={300}
           prefix={<SearchOutlined />}
         />
-      </div>
-      <div className={styles.runningClass}>
-        <span>运行中</span>
-        <span>240/249</span>
-      </div>
-      <div className={styles.runningClass}>
-        <span>平仓中</span>
-        <span>4/249</span>
       </div>
     </div>
   );

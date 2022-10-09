@@ -13,6 +13,7 @@ import MarketGroupRender from './components/MarketGroupRender';
 import AvaliableCaptialCellerRender from './components/AvaliableCaptialCellerRender';
 import AccountCellRenderer from './components/AccountCellRenderer';
 import CustomExcuteTradeHeaderGroup from './components/CustomExcuteTradeHeaderGroup';
+import MarketCellRender from './components/MarketCellRender';
 
 export const columnFullData = [
   {
@@ -147,33 +148,36 @@ export const getDispalyProduct = (arrColum: any) => {
       sortable: true,
       suppressMenu: true,
       rowGroup: true,
-      hide: true,
-    },
-    {
-      field: 'productName',
-      colId: 'productGroup',
-      headerName: '产品名称',
-      suppressMenu: true,
-      showRowGroup: true,
-      cellRenderer: 'agGroupCellRenderer',
-      headerCheckboxSelection: true, //表头是否也显示复选框，全选反选用
-      cellRendererParams: {
-        suppressCount: true,
-        checkbox: true,
-        innerRenderer: ProductGroupCellRender,
-        suppressDoubleClickExpand: true,
-        suppressEnterExpand: true,
-      },
-      sortable: true,
+      hide: false,
+      checkboxSelection: (params: any) => !!params.node.group,
+      headerCheckboxSelection: true, //表头是否也显示复选框，全选反选
+      cellRenderer: ProductCellRenderer,
     },
     {
       field: 'account',
       colId: 'account',
       headerName: '资金账号',
       suppressMenu: true,
-      hide: false,
+      hide: true,
       rowGroup: false,
+      aggFunc: 'first',
       cellRenderer: AccountCellRenderer,
+    },
+    {
+      field: 'account',
+      colId: 'accountGroup',
+      headerName: '资金账号',
+      suppressMenu: true,
+      showRowGroup: true,
+      cellRenderer: 'agGroupCellRenderer',
+      cellRendererParams: {
+        suppressCount: true,
+        checkbox: false,
+        innerRenderer: AccountGroupCellRenderer,
+        suppressDoubleClickExpand: true,
+        suppressEnterExpand: true,
+      },
+      sortable: true,
     },
   ];
 
@@ -190,24 +194,10 @@ export const getDispalyAccount = (arrColum: any) => {
       suppressMenu: true,
       rowGroup: true,
       aggFunc: 'first',
-      hide: true,
-    },
-    {
-      field: 'account',
-      colId: 'accountGroup',
-      headerName: '资金账号',
-      suppressMenu: true,
-      showRowGroup: true,
-      cellRenderer: 'agGroupCellRenderer',
-      headerCheckboxSelection: true, //表头是否也显示复选框，全选反选用
-      cellRendererParams: {
-        suppressCount: true,
-        checkbox: true,
-        innerRenderer: AccountGroupCellRenderer,
-        suppressDoubleClickExpand: true,
-        suppressEnterExpand: true,
-      },
-      sortable: true,
+      hide: false,
+      checkboxSelection: (params: any) => !!params.node.group,
+      headerCheckboxSelection: true, //表头是否也显示复选框，全选反选
+      cellRenderer: AccountCellRenderer,
     },
     {
       field: 'productName',
@@ -216,9 +206,25 @@ export const getDispalyAccount = (arrColum: any) => {
       sortable: true,
       suppressMenu: true,
       rowGroup: false,
-      hide: false,
+      hide: true,
       aggFunc: 'first',
       cellRenderer: ProductCellRenderer,
+    },
+    {
+      field: 'productName',
+      colId: 'productGroup',
+      headerName: '产品名称',
+      suppressMenu: true,
+      showRowGroup: true,
+      cellRenderer: 'agGroupCellRenderer',
+      cellRendererParams: {
+        suppressCount: true,
+        checkbox: false,
+        innerRenderer: ProductGroupCellRender,
+        suppressDoubleClickExpand: true,
+        suppressEnterExpand: true,
+      },
+      sortable: true,
     },
   ];
 
@@ -234,25 +240,12 @@ export const getDispalyMarket = (arrColum: any) => {
       headerName: '市场',
       suppressMenu: true,
       rowGroup: true,
-      hide: true,
+      hide: false,
       aggFunc: 'first',
       sortable: true,
-    },
-    {
-      field: 'market',
-      colId: 'marketGroup',
-      headerName: '市场',
-      suppressMenu: true,
-      showRowGroup: true,
-      cellRenderer: 'agGroupCellRenderer',
-      cellRendererParams: {
-        suppressCount: true,
-        checkbox: true,
-        innerRenderer: MarketGroupRender,
-        suppressDoubleClickExpand: true,
-        suppressEnterExpand: true,
-      },
-      sortable: true,
+      checkboxSelection: (params: any) => !!params.node.group,
+      headerCheckboxSelection: true, //表头是否也显示复选框，全选反选
+      cellRenderer: MarketCellRender,
     },
     {
       field: 'account',
@@ -260,20 +253,51 @@ export const getDispalyMarket = (arrColum: any) => {
       headerName: '资金账号',
       suppressMenu: true,
       aggFunc: 'first',
-      hide: false,
+      hide: true,
+      rowGroup: false,
+      cellRenderer: AccountCellRenderer,
+    },
+    {
+      field: 'account',
+      colId: 'accountGroup',
+      headerName: '资金账号',
+      suppressMenu: true,
+      showRowGroup: true,
+      cellRenderer: 'agGroupCellRenderer',
+      cellRendererParams: {
+        suppressCount: true,
+        checkbox: false,
+        innerRenderer: AccountGroupCellRenderer,
+        suppressDoubleClickExpand: true,
+        suppressEnterExpand: true,
+      },
+      sortable: true,
+    },
+    {
+      field: 'productName',
+      colId: 'productName',
+      headerName: '资金账号',
+      suppressMenu: true,
+      aggFunc: 'first',
+      hide: true,
       rowGroup: false,
       cellRenderer: AccountCellRenderer,
     },
     {
       field: 'productName',
-      colId: 'productName',
+      colId: 'productGroup',
       headerName: '产品名称',
-      sortable: true,
       suppressMenu: true,
-      aggFunc: 'first',
-      rowGroup: false,
-      hide: false,
-      cellRenderer: ProductCellRenderer,
+      showRowGroup: true,
+      cellRenderer: 'agGroupCellRenderer',
+      cellRendererParams: {
+        suppressCount: true,
+        checkbox: false,
+        innerRenderer: ProductGroupCellRender,
+        suppressDoubleClickExpand: true,
+        suppressEnterExpand: true,
+      },
+      sortable: true,
     },
   ];
 
