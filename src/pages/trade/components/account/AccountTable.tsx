@@ -81,8 +81,7 @@ const AccountTable = (props: AccountTabsProps) => {
           rowHeight={28}
           headerHeight={28}
           getRowStyle={(params) => {
-            console.log(params.data, 'any');
-            if ((params as any)?.data?.account === 'accountGroup') {
+            if (!(params as any)?.node.groupData) {
               return { background: '#1A1B21', borderBottom: 'none' };
             }
           }}
