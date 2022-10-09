@@ -1,4 +1,4 @@
-import { Button } from 'antd';
+import { Button, ConfigProvider } from 'antd';
 import React from 'react';
 import styles from './index.less';
 import framePng from '@/asssets/Frame.png';
@@ -43,7 +43,9 @@ function HeaderRight(props: HeaderRightProps) {
           <Button icon={<PauseCircleOutlined />} className={styles.color42B1FF}>
             暂停
           </Button>
-          <Button className={styles.colorFF8743}>平仓</Button>
+          <ConfigProvider autoInsertSpaceInButton={false}>
+            <Button className={styles.colorFF8743}>平仓</Button>
+          </ConfigProvider>
           <Button className={styles.colorC8C9CC}>日内标的设置</Button>
           <Button icon={<PauseCircleOutlined />} className={styles.color42B1FF}>
             停止算法单

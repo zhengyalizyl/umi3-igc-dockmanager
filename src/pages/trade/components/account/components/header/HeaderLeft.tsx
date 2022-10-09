@@ -1,8 +1,7 @@
 import { Button, Input, Select } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import styles from './index.less';
-import { selectProductMap } from '../../utils';
 import { connect, Dispatch } from 'umi';
 import { TradeModelState } from '@/pages/trade/tradeModelType';
 
@@ -10,18 +9,26 @@ const { Option } = Select;
 
 interface AccountHeaderLeftProps {
   dispatch: Dispatch;
-  accountSelectData: number;
+  accountSelectData: string;
 }
 
 const HeaderLeft = (props: AccountHeaderLeftProps) => {
   const { dispatch } = props;
+  const [expand, setExpand] = useState(false);
 
-  const handleChange = (value: keyof typeof selectProductMap) => {
-    console.log(`selected ${value}`, selectProductMap[value]);
-    // handleOnChangeDisaply(selectProductMap[value])
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`, value);
     dispatch({
       type: 'trade/handleSelectAccount',
-      payload: selectProductMap[value],
+      payload: value,
+    });
+  };
+
+  const clickExpandAccount = () => {
+    setExpand(!expand);
+    dispatch({
+      type: 'trade/expandOrContactAllAccount',
+      payload: !expand,
     });
   };
 
@@ -46,8 +53,12 @@ const HeaderLeft = (props: AccountHeaderLeftProps) => {
           prefix={<SearchOutlined />}
         />
       </div>
-      <Button className={styles.expandClass} type="link">
-        展开全部内容
+      <Button
+        className={styles.expandClass}
+        type="link"
+        onClick={clickExpandAccount}
+      >
+        {expand ? '关闭全部内容' : '展开全部内容'}
       </Button>
     </div>
   );

@@ -3,7 +3,6 @@ export const getTheValue = (
   colName: string,
   emptyDispalyName: string,
 ) => {
-  console.log(params, '=====');
   if (!(params.node && params.node.group)) {
     return params.data[colName] ? params.data[colName] : emptyDispalyName;
   }
@@ -22,8 +21,6 @@ export const getAggSumFunc = (parmas: any, emptyDispayName: string) => {
   } else {
     hasValArr.map((item: any) => (sum += item));
   }
-
-  console.log(sum, 'weituobiaodi ');
   // is a trick to get the default cellRenderer to display the value
   return sum;
 };

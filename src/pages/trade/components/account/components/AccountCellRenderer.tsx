@@ -4,16 +4,11 @@ import { DownOutlined, RightOutlined } from '@ant-design/icons';
 import styles from './index.less';
 import { Button, Tooltip } from 'antd';
 
-export default (props: ICellRendererParams) => {
-  const onClick = () => {
-    props.node.setExpanded(!props.node.expanded);
-  };
-  const count = props.node.allChildrenCount;
-  const countMore1 = count && count > 1;
-
+const AccountCellRenderer = (props: ICellRendererParams) => {
+  console.log(props);
   if (props.node.group) {
-    //dengluyuweidenglu
     const allLeafChildren = props.node.allLeafChildren;
+    console.log(props.node);
     let unloginArr: any[] = [];
     Array.from(allLeafChildren).map((leaf) => {
       if (!leaf.data.accountIsLogin) {
@@ -23,17 +18,7 @@ export default (props: ICellRendererParams) => {
     const isUnLoginArr = unloginArr.length == 1;
     return (
       <div className={styles.accountCellClass}>
-        <span>{countMore1 ? '账号' : props.value}</span>
-        {countMore1 && <span className={styles.countClass}>{count}</span>}
-        <span className={styles.expandClass}>
-          {countMore1 && props.node.expanded && (
-            <DownOutlined style={{ fontSize: 12 }} onClick={onClick} />
-          )}
-          {countMore1 && !props.node.expanded && (
-            <RightOutlined style={{ fontSize: 12 }} onClick={onClick} />
-          )}
-        </span>
-
+        <span> {props.value}</span>
         {isUnLoginArr && (
           <Tooltip
             title={
@@ -88,3 +73,5 @@ export default (props: ICellRendererParams) => {
     </div>
   );
 };
+
+export default AccountCellRenderer;

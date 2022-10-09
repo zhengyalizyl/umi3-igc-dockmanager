@@ -3,7 +3,8 @@ import { TradeModelType } from './tradeModelType';
 const Trade: TradeModelType = {
   namespace: 'trade',
   state: {
-    accountSelectData: 1,
+    accountSelectData: 'account',
+    accountexpandOrContactAllData: false,
     accountSelectRowData: [],
     dialySelectProductData: 'all',
     dialySelectAccountData: 'all',
@@ -35,6 +36,13 @@ const Trade: TradeModelType = {
       return {
         ...state,
         accountSelectRowData: action.payload,
+      };
+    },
+    //@ts-ignore
+    expandOrContactAllAccount(state, action) {
+      return {
+        ...state,
+        accountexpandOrContactAllData: action.payload,
       };
     },
   },

@@ -9,7 +9,7 @@ const { Option } = Select;
 
 interface AccountHeaderLeftProps {
   dispatch: Dispatch;
-  accountSelectData: number;
+  accountSelectData: string;
 }
 
 const HeaderLeft = (props: AccountHeaderLeftProps) => {

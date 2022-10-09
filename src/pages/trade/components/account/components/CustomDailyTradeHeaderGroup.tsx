@@ -3,7 +3,6 @@ import { Tooltip } from 'antd';
 import styles from './index.less';
 
 const CustomTradeHeaderGroup = (props: any) => {
-  console.log(props, '=============++++');
   return (
     <div>
       <div className="ag-header-group-cell-label">

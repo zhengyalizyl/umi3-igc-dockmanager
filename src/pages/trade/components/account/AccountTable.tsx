@@ -12,16 +12,17 @@ import { TradeModelState } from '../../tradeModelType';
 import { columMap, columnFullData } from './accountColumnData';
 
 interface AccountTabsProps {
-  accountSelectData: number;
+  accountSelectData: string;
+  accountexpandOrContactAllData: boolean;
   dispatch: Dispatch;
 }
 
 const AccountTable = (props: AccountTabsProps) => {
-  const { accountSelectData, dispatch } = props;
+  const { accountSelectData, dispatch, accountexpandOrContactAllData } = props;
+  console.log(accountexpandOrContactAllData);
   const gridRef = useRef<AgGridReact<any>>(null);
 
-  const filterCoum =
-    columMap[(accountSelectData + '') as keyof typeof columMap];
+  const filterCoum = columMap[accountSelectData as keyof typeof columMap];
   const [rowData, setRowData] = useState<any[]>(accountData);
   const [columnDefs, setColumnDefs] = useState<any[]>(filterCoum);
   const defaultColDef = useMemo<ColDef>(() => {
@@ -32,16 +33,22 @@ const AccountTable = (props: AccountTabsProps) => {
   }, []);
 
   useEffect(() => {
-    const filterCoum =
-      columMap[(accountSelectData + '') as keyof typeof columMap];
+    const filterCoum = columMap[accountSelectData as keyof typeof columMap];
     setColumnDefs(filterCoum);
     setRowData(accountData);
   }, [accountSelectData]);
 
+  useEffect(() => {
+    console.log(accountexpandOrContactAllData, 'zhankaile');
+    if (accountexpandOrContactAllData) {
+      gridRef.current?.api?.expandAll();
+    } else {
+      gridRef.current?.api?.collapseAll();
+    }
+  }, [accountexpandOrContactAllData]);
+
   const onSelectionChanged = () => {
-    console.log(gridRef.current!.api);
     const selectedRows = gridRef.current!.api.getSelectedRows();
-    console.log(selectedRows, 'xuanze===');
     dispatch({
       type: 'trade/handleSelectRowAccount',
       payload: selectedRows,
@@ -70,6 +77,7 @@ const AccountTable = (props: AccountTabsProps) => {
           onSelectionChanged={onSelectionChanged}
           suppressAggFuncInHeader={true}
           groupSelectsChildren={true}
+          suppressContextMenu={true}
           rowHeight={28}
           headerHeight={28}
           getRowStyle={(params) => {
@@ -87,5 +95,6 @@ const AccountTable = (props: AccountTabsProps) => {
 export default connect(({ trade }: { trade: TradeModelState }) => {
   return {
     accountSelectData: trade.accountSelectData,
+    accountexpandOrContactAllData: trade.accountexpandOrContactAllData,
   };
 })(AccountTable);
