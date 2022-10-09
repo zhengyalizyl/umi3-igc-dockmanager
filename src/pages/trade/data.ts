@@ -396,6 +396,7 @@ export const dailySymbolSettingData = [
     symbolName: '中国平安',
     symbol: '000001',
     entrustNum: 123,
+    isSetting: true,
     entrustVal: 122,
     needMoney: 12122,
     settingTime: new Date(),
@@ -407,7 +408,7 @@ export const dailySymbolSettingData = [
     tip: '123445566',
   },
   {
-    account: '0014510012',
+    account: '0014510011',
     symbolName: '中国平安2',
     symbol: '000001',
     entrustNum: 123,
