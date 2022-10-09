@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import AccountCellRenderer from './components/AccountGroupCellRenderer';
-import CustomTradeHeaderGroup from './components/CustomTradeHeaderGroup';
+import AccountGroupCellRenderer from './components/AccountGroupCellRenderer';
+import CustomDailyTradeHeaderGroup from './components/CustomDailyTradeHeaderGroup';
 import OpertationTable from './components/OpertationTable';
 import ProcessCellRenderer from './components/ProcessCellRenderer';
 import ProductCellRenderer from './components/ProductCellRenderer';
@@ -10,50 +10,17 @@ import { getAggSumFunc, getCellRenderValue } from './utils';
 import TipCellRenderer from './components/TipCellRenderer';
 import ProductGroupCellRender from './components/ProductGroupCellRender';
 import MarketGroupRender from './components/MarketGroupRender';
+import AvaliableCaptialCellerRender from './components/AvaliableCaptialCellerRender';
+import AccountCellRenderer from './components/AccountCellRenderer';
+import CustomExcuteTradeHeaderGroup from './components/CustomExcuteTradeHeaderGroup';
 
 export const columnFullData = [
-  // {
-  //     field: 'account',
-  //     colId: 'account',
-  //     headerName: '资金账号',
-  //     suppressMenu: true,
-  //     rowGroup: true,
-  //     aggFunc: 'first',
-  //     hide: true,
-  // },
-  // {
-  //     field: 'account',
-  //     colId: 'accountGroup',
-  //     headerName: '资金账号',
-  //     suppressMenu: true,
-  //     showRowGroup: true,
-  //     cellRenderer: 'agGroupCellRenderer',
-  //     headerCheckboxSelection: true, //表头是否也显示复选框，全选反选用
-  //     cellRendererParams: {
-  //         suppressCount: true,
-  //         checkbox: true,
-  //         innerRenderer: AccountCellRenderer,
-  //         suppressDoubleClickExpand: true,
-  //         suppressEnterExpand: true,
-  //     },
-  //     sortable: true
-  // }, {
-  //     field: 'productName',
-  //     colId: 'productName',
-  //     headerName: '产品名称',
-  //     sortable: true,
-  //     suppressMenu: true,
-  //     rowGroup: false,
-  //     hide: false,
-  //     aggFunc: 'first',
-
-  //     cellRenderer: ProductCellRenderer
-  // },
   {
     field: 'avaliableCaptial',
     suppressMenu: true,
     headerName: '可用资金',
     aggFunc: 'sum',
+    cellRenderer: AvaliableCaptialCellerRender,
   },
   {
     field: 'symbol',
@@ -115,7 +82,7 @@ export const columnFullData = [
     field: 'dailyTradeMoney',
     headerName: '交易金额',
     suppressMenu: true,
-    headerComponent: CustomTradeHeaderGroup,
+    headerComponent: CustomDailyTradeHeaderGroup,
     // aggFunc: (params: any) => getAggSumFunc(params, '--'),
     cellRenderer: (parmas: any) => getCellRenderValue(parmas, '--'),
   },
@@ -135,8 +102,9 @@ export const columnFullData = [
   },
   {
     field: 'excuteMoney',
-    headerName: '执行交易金额',
+    headerName: '交易金额',
     suppressMenu: true,
+    headerComponent: CustomExcuteTradeHeaderGroup,
     aggFunc: (params: any) => getAggSumFunc(params, '--'),
     cellRenderer: (parmas: any) => getCellRenderValue(parmas, '--'),
   },
@@ -155,6 +123,7 @@ export const columnFullData = [
     pinned: 'right',
     width: 56,
     suppressMenu: true,
+    sortable: false,
     aggFunc: 'first',
     cellRenderer: TipCellRenderer,
   },
@@ -163,7 +132,8 @@ export const columnFullData = [
     pinned: 'right',
     type: 'rightAligned',
     suppressMenu: true,
-    width: 465,
+    sortable: false,
+    width: 436,
     cellRenderer: OpertationTable,
   },
 ];
@@ -203,7 +173,7 @@ export const getDispalyProduct = (arrColum: any) => {
       suppressMenu: true,
       hide: false,
       rowGroup: false,
-      aggFunc: 'first',
+      cellRenderer: AccountCellRenderer,
     },
   ];
 
@@ -233,7 +203,7 @@ export const getDispalyAccount = (arrColum: any) => {
       cellRendererParams: {
         suppressCount: true,
         checkbox: true,
-        innerRenderer: AccountCellRenderer,
+        innerRenderer: AccountGroupCellRenderer,
         suppressDoubleClickExpand: true,
         suppressEnterExpand: true,
       },
@@ -248,7 +218,6 @@ export const getDispalyAccount = (arrColum: any) => {
       rowGroup: false,
       hide: false,
       aggFunc: 'first',
-
       cellRenderer: ProductCellRenderer,
     },
   ];
@@ -293,6 +262,7 @@ export const getDispalyMarket = (arrColum: any) => {
       aggFunc: 'first',
       hide: false,
       rowGroup: false,
+      cellRenderer: AccountCellRenderer,
     },
     {
       field: 'productName',
@@ -312,7 +282,7 @@ export const getDispalyMarket = (arrColum: any) => {
 };
 
 export const columMap = {
-  '1': getDispalyAccount(columnFullData),
-  '2': getDispalyProduct(columnFullData),
-  '3': getDispalyMarket(columnFullData),
+  account: getDispalyAccount(columnFullData),
+  product: getDispalyProduct(columnFullData),
+  market: getDispalyMarket(columnFullData),
 };
