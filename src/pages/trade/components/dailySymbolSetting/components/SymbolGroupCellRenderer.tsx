@@ -15,7 +15,10 @@ export default (props: ICellRendererParams) => {
         {countMore1 ? (
           <span className={styles.countClass}>{count}</span>
         ) : (
-          <span>{props.node.aggData.symbol}</span>
+          <>
+            <span>{props.node.aggData.symbol}</span>
+            <span className={styles.ml8}>{props.node.aggData.symbolName}</span>
+          </>
         )}
         <span className={styles.expandClass}>
           {countMore1 && props.node.expanded && (
@@ -32,6 +35,7 @@ export default (props: ICellRendererParams) => {
   return (
     <div className={styles.accountCellClass}>
       <span>{props.value}</span>
+      <span className={styles.ml8}>{props.node.data.symbolName}</span>
     </div>
   );
 };

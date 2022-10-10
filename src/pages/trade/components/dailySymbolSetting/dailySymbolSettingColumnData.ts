@@ -42,12 +42,13 @@ export const columnFullData = [
     },
     sortable: true,
   },
-  // {
-  //   field: 'symbol',
-  //   suppressMenu: true,
-  //   headerName: '标的代码',
-  //   cellRenderer:SymbolCodeCellRenderer,
-  // },
+  {
+    field: 'symbolName',
+    suppressMenu: true,
+    headerName: '标的名称',
+    aggFunc: 'first',
+    hide: true,
+  },
   {
     field: 'entrustNum',
     headerName: '委托数量(股)',
